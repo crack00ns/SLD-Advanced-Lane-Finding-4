@@ -42,7 +42,7 @@ I start by preparing "object points", which will be the (x, y, z) coordinates of
 
 I then used the output `objpoints` and `imgpoints` to compute the camera calibration and distortion coefficients using the `cv2.calibrateCamera()` function.  I applied this distortion correction to the test image using the `cv2.undistort()` function and obtained the results as shown below. All the required code is part of `CalibrateCamPerspectiveTransform.caliberate()` and `CalibrateCamPerspectiveTransform.undistort()` functions.
 
-![Found Corners][image1]{ width=45% }
+![Found Corners][image1]{width="45%"}
 *Detecting Checkerboard Corners in an Image*
 
 ![Distortion Correction][image2]
