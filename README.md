@@ -42,7 +42,7 @@ I start by preparing "object points", which will be the (x, y, z) coordinates of
 
 I then used the output `objpoints` and `imgpoints` to compute the camera calibration and distortion coefficients using the `cv2.calibrateCamera()` function.  I applied this distortion correction to the test image using the `cv2.undistort()` function and obtained the results as shown below. All the required code is part of `CalibrateCamPerspectiveTransform.caliberate()` and `CalibrateCamPerspectiveTransform.undistort()` functions.
 
-![Found Corners][image1]{width="45%"}
+![Found Corners][image1]
 *Detecting Checkerboard Corners in an Image*
 
 ![Distortion Correction][image2]
@@ -72,7 +72,7 @@ Here is pipeline of the whole thresholding process:
 *Binary Thresholding Pipeline*
 
 Thereafter I applied a mask to remove the remaining artefacts from the road so that only lanes are visible. Please check `region_of_interest()` function in `.\laneutils.py` on details how masking was performed. Here is the final output:
-![alt text][image5]{ width=45% }
+![alt text][image5]
 *Applied Region of Mask*
 
 Here are some samples of images side by side (original image and thresholded image after distortion correction)
@@ -99,16 +99,16 @@ I verified that my perspective transform was working as expected by drawing the 
 
 ### 4. Identifying Lane Pixels and Masking the Lane
 To identify lane pixels, I used a technique discussed in lectures where first I take a histogram of lower half of the image. This is implemented in `.\laneutils.py` in `LaneDetector` class as part of `peak_detection(binary_warped)` function in lines 178-194. The output is shown below.
-![alt text][image10]{width=50%}
+![alt text][image10]
 
 The peaks of the histogram correspond to the lane positions which were used to mark initial left and right positions and detect lane pixels using a sliding window approach was used as discussed in lectures. Then a second degree polynomial was fitted for the lane positions. Lanes lines are tracked with a `Line` class that keeps track of a bunch of parameters such as best fit polynomial (averaged over 5 frames), current fit polynomial and current x and y points for each lane line. Here is the output of sliding window procedure:
-![alt text][image11]{width=50%}
+![alt text][image11]
 
 If the lanes were detected in previous frame, we used targeted search in region (with a margin of 100) on previously detected lanes as shown below.
-![alt text][image12]{width=50%}
+![alt text][image12]
 
 The entire code of this procedure is part of `detect_and_plot_lanes()` function of the `LaneDetector` class. If the lanes were detected, lane curvature is calculated with `calculate_curvature()` function given in lines 521-530 in `./laneutils.py`. Vehicle position is also calculated based on how much center of the lane is offset by the center of the image. Finally detected lane region was masked with green color and unwarped and added to the original along with curvature and vehicle position as shown below: 
-![alt text][image13]{width=80%}
+![alt text][image13]
 
 ---
 
