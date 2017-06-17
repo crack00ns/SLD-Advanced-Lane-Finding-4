@@ -107,7 +107,7 @@ The peaks of the histogram correspond to the lane positions which were used to m
 If the lanes were detected in previous frame, we used targeted search in region (with a margin of 100) on previously detected lanes as shown below.
 ![alt text][image12]
 
-The entire code of this procedure is part of `detect_and_plot_lanes()` function of the `LaneDetector` class. If the lanes were detected, lane curvature is calculated with `calculate_curvature()` function given in lines 521-530 in `./laneutils.py`. Vehicle position is also calculated based on how much center of the lane is offset by the center of the image. Finally detected lane region was masked with green color and unwarped and added to the original along with curvature and vehicle position as shown below: 
+The entire code of this procedure is part of `detect_and_plot_lanes()` function of the `LaneDetector` class. If the lanes were detected, lane curvature is calculated with `calculate_curvature()` function given in lines 521-530 in `./laneutils.py`. Sanity checks were performed on lanes whether they are parallel and separated by the right distance. Vehicle position is also calculated based on how much center of the lane is offset by the center of the image. Finally detected lane region was masked with green color and unwarped and added to the original along with curvature and vehicle position as shown below: 
 ![alt text][image13]
 
 ---
