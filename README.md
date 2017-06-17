@@ -29,7 +29,7 @@ The goals / steps of this project are the following:
 [image11]: ./output_images/detected_lanes.png "Detected Lanes with Sliding Window"
 [image12]: ./output_images/no_sliding_window.png "Detected Lanes with previous lane positions"
 [image13]: ./output_images/plot_lanes.jpg "Final Image with Marked Lanes"
-[video1]: ./project_video_with_marked_lanes.mp4 "Output Video"
+
 ---
 ## Project code
 All main part of code for this project is implemented in the following `./laneutils.py` file. The IPython notebook `./advanced_lanes.ipynb` has a streamlined code showing how to run the code from laneutils.py on a sample image and video files. Diagonostics images can be obtained by setting `debug` parameter in LaneDetector object to be true. All the generated images are stored in `output_images` folder.
